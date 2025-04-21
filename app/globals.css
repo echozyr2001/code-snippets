@@ -120,3 +120,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/*
+Shiki语法高亮库在生成代码高亮时会为各种元素（如pre、code和span标签）添加背景颜色
+即使我们之前将Editor组件的背景设置为透明，这些内部元素仍然保留了自己的背景色
+新添加的CSS规则使用:where()选择器和!important标志，确保所有这些元素的背景都被强制设为透明
+这样，代码区域就会继承外部容器的bg-black/75背景，消除视觉上的差异
+*/
+/* Override Shiki syntax highlighting backgrounds */
+.shiki-editor :where(pre),
+.shiki-editor :where(code),
+.shiki-editor :where(span) {
+  background-color: transparent !important;
+}
