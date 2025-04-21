@@ -8,28 +8,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { bundledThemes } from "shiki/bundle/web";
+import { bundledLanguages } from "shiki/bundle/web";
 
-export default function ThemeSelect() {
-  const theme = useStore((state) => state.theme);
+export default function LangSelect() {
+  const lang = useStore((state) => state.lang);
 
   return (
     <div>
       <label className="block mb-2 text-xs font-medium text-neutral-400">
-        Theme
+        Language
       </label>
       <Select
-        value={theme}
-        onValueChange={(value) => useStore.setState({ theme: value })}
+        value={lang}
+        onValueChange={(value) => useStore.setState({ lang: value })}
       >
         <SelectTrigger className="w-40">
           <SelectValue placeholder="Select Theme" />
         </SelectTrigger>
         <SelectContent className="dark">
-          {Object.keys(bundledThemes).map((theme) => (
-            <SelectItem key={theme} value={theme}>
+          {Object.keys(bundledLanguages).map((lang) => (
+            <SelectItem key={lang} value={lang}>
               <div className="flex gap-2 items-center">
-                <span className="capitalize">{theme}</span>
+                <span className="capitalize">{lang}</span>
               </div>
             </SelectItem>
           ))}

@@ -13,10 +13,12 @@ export function CodeEditor({ initial }: { initial?: JSX.Element }) {
   const [nodes, setNodes] = useState(initial);
 
   useLayoutEffect(() => {
-    void highlight('console.log("Rendered on client")', "ts", store.theme).then(
-      setNodes
-    );
-  }, [store.theme]);
+    void highlight(
+      'console.log("Rendered on client")',
+      store.lang as BundledLanguage,
+      store.theme
+    ).then(setNodes);
+  }, [store.theme, store.lang]);
 
   return nodes ?? <p>Loading...</p>;
 }

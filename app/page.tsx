@@ -1,4 +1,5 @@
 import { CodeEditor } from "@/components/CodeEditor";
+import LangSelect from "@/components/controlers/LanguageSelect";
 import ThemeSelect from "@/components/controlers/ThemeSelect";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <Card className="p-6 w-fit bg-neutral-900/90 backdrop-blur">
         <CardContent className="flex flex-wrap gap-4 sm:gap-6 p-0">
           <ThemeSelect />
+          <LangSelect />
         </CardContent>
       </Card>
     </main>
