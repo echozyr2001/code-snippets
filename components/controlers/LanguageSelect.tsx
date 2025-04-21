@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { bundledLanguages } from "shiki/bundle/web";
+import { BundledLanguage, bundledLanguages } from "shiki/bundle/web";
 
 export default function LangSelect() {
   const lang = useStore((state) => state.lang);
@@ -20,7 +20,9 @@ export default function LangSelect() {
       </label>
       <Select
         value={lang}
-        onValueChange={(value) => useStore.setState({ lang: value })}
+        onValueChange={(value: BundledLanguage) =>
+          useStore.setState({ lang: value })
+        }
       >
         <SelectTrigger className="w-40">
           <SelectValue placeholder="Select Theme" />

@@ -1,11 +1,12 @@
+import { BundledLanguage, BundledTheme } from "shiki/bundle/web";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface StoreState {
   code: string;
-  lang: string;
+  lang: BundledLanguage;
   title: string;
-  theme: string;
+  theme: BundledTheme;
 }
 
 const useStore = create(

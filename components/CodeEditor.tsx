@@ -1,7 +1,7 @@
 "use client";
 
 import useStore from "@/app/store";
-import type { BundledLanguage } from "shiki/bundle/web";
+import type { BundledLanguage, BundledTheme } from "shiki/bundle/web";
 import { codeToHast } from "shiki/bundle/web";
 import { toJsxRuntime } from "hast-util-to-jsx-runtime";
 import { Fragment } from "react";
@@ -16,7 +16,7 @@ export function CodeEditor({ initial }: { initial?: JSX.Element }) {
     void highlight(
       'console.log("Rendered on client")',
       store.lang as BundledLanguage,
-      store.theme
+      store.theme as BundledTheme
     ).then(setNodes);
   }, [store.theme, store.lang]);
 
@@ -26,7 +26,7 @@ export function CodeEditor({ initial }: { initial?: JSX.Element }) {
 export async function highlight(
   code: string,
   lang: BundledLanguage,
-  theme: string
+  theme: BundledTheme
 ) {
   const out = await codeToHast(code, {
     lang,

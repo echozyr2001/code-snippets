@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { bundledThemes } from "shiki/bundle/web";
+import { BundledTheme, bundledThemes } from "shiki/bundle/web";
 
 export default function ThemeSelect() {
   const theme = useStore((state) => state.theme);
@@ -20,7 +20,9 @@ export default function ThemeSelect() {
       </label>
       <Select
         value={theme}
-        onValueChange={(value) => useStore.setState({ theme: value })}
+        onValueChange={(value: BundledTheme) =>
+          useStore.setState({ theme: value })
+        }
       >
         <SelectTrigger className="w-40">
           <SelectValue placeholder="Select Theme" />
