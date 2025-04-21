@@ -28,13 +28,15 @@ export default function ThemeSelect() {
           <SelectValue placeholder="Select Theme" />
         </SelectTrigger>
         <SelectContent className="dark">
-          {Object.keys(bundledThemes).map((theme) => (
-            <SelectItem key={theme} value={theme}>
-              <div className="flex gap-2 items-center">
-                <span className="capitalize">{theme}</span>
-              </div>
-            </SelectItem>
-          ))}
+          {Object.keys(bundledThemes)
+            .sort((a, b) => a.localeCompare(b))
+            .map((theme) => (
+              <SelectItem key={theme} value={theme}>
+                <div className="flex gap-2 items-center">
+                  <span className="capitalize">{theme}</span>
+                </div>
+              </SelectItem>
+            ))}
         </SelectContent>
       </Select>
     </div>

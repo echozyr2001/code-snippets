@@ -28,13 +28,15 @@ export default function LangSelect() {
           <SelectValue placeholder="Select Theme" />
         </SelectTrigger>
         <SelectContent className="dark">
-          {Object.keys(bundledLanguages).map((lang) => (
-            <SelectItem key={lang} value={lang}>
-              <div className="flex gap-2 items-center">
-                <span className="capitalize">{lang}</span>
-              </div>
-            </SelectItem>
-          ))}
+          {Object.keys(bundledLanguages)
+            .sort((a, b) => a.localeCompare(b))
+            .map((lang) => (
+              <SelectItem key={lang} value={lang}>
+                <div className="flex gap-2 items-center">
+                  <span className="capitalize">{lang}</span>
+                </div>
+              </SelectItem>
+            ))}
         </SelectContent>
       </Select>
     </div>
