@@ -12,9 +12,9 @@ interface StoreState {
 const useStore = create(
   persist<StoreState>(
     () => ({
-      code: "",
-      lang: "ts",
-      title: "",
+      code: 'int main() {\n printf("Hello, World!");\n  return 0;\n}',
+      lang: "c",
+      title: "main",
       theme: "andromeeda",
     }),
     {
