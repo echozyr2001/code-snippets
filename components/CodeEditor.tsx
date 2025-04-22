@@ -9,7 +9,13 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import { JSX, useLayoutEffect, useState } from "react";
 import Editor from "react-simple-code-editor";
 
-export function CodeEditor({ initial }: { initial?: JSX.Element }) {
+export function CodeEditor({
+  initial,
+  id,
+}: {
+  initial?: JSX.Element;
+  id?: string;
+}) {
   const store = useStore();
   const [nodes, setNodes] = useState(initial);
 
@@ -22,7 +28,10 @@ export function CodeEditor({ initial }: { initial?: JSX.Element }) {
   }, [store.theme, store.lang, store.code]);
 
   return (
-    <div className="border-2 rounded-xl shadow-2xl bg-black/75 border-gray-600/40">
+    <div
+      id={id}
+      className="border-2 rounded-xl shadow-2xl bg-black/75 border-gray-600/40"
+    >
       <header className="grid grid-cols-6 gap-3 items-center px-4 py-3">
         <div className="flex gap-1.5">
           <div className="rounded-full h-2 w-2 bg-red-500"></div>
