@@ -50,7 +50,10 @@ export function CodeEditor({
         </div>
       </header>
 
-      <div className="px-4 pb-4 shiki-editor">
+      <div
+        className="px-4 pb-4 shiki-editor"
+        style={{ height: "500px", overflowY: "auto" }}
+      >
         <Editor
           value={store.code}
           onValueChange={(code) => {
